@@ -59,7 +59,7 @@
                     <b class="arrow"></b>
                 </li>
                 <li>
-                    <a href='<c:url value="/admin/device-list"/>'>
+                    <a href='<c:url value="/admin/asset-list"/>'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         Danh sách thiết bị
                     </a>

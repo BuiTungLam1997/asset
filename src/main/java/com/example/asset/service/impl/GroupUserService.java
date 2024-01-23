@@ -6,6 +6,7 @@ import com.example.asset.mapper.GroupUserMapper;
 import com.example.asset.repository.GroupUserRepository;
 import com.example.asset.service.IGroupPermissionService;
 import com.example.asset.service.IGroupUserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,11 +17,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class GroupUserService implements IGroupUserService {
 
-    @Autowired
+
     GroupUserRepository groupUserRepository;
-    @Autowired
+
     GroupUserMapper groupUserMapper;
 
 

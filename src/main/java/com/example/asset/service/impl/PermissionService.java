@@ -4,6 +4,7 @@ import com.example.asset.dto.PermissionDTO;
 import com.example.asset.mapper.PermissionMapper;
 import com.example.asset.repository.PermissionRepository;
 import com.example.asset.service.IPermissionService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +15,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class PermissionService implements IPermissionService {
 
-    @Autowired
+
     PermissionRepository permissionRepository;
-    @Autowired
+
     PermissionMapper permissionMapper;
 
     @Override

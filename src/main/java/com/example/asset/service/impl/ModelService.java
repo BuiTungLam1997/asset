@@ -4,6 +4,7 @@ import com.example.asset.dto.ModelDTO;
 import com.example.asset.mapper.ModelMapper;
 import com.example.asset.repository.ModelRepository;
 import com.example.asset.service.IModelService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +15,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class ModelService implements IModelService {
 
-    @Autowired
+
     ModelRepository modelRepository;
-    @Autowired
+
     ModelMapper modelMapper;
 
     @Override

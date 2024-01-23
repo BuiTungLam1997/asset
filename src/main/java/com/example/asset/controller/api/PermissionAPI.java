@@ -3,6 +3,7 @@ package com.example.asset.controller.api;
 import com.example.asset.controller.output.ResponseService;
 import com.example.asset.dto.PermissionDTO;
 import com.example.asset.service.IPermissionService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api.v1/permission")
+@AllArgsConstructor
 public class PermissionAPI {
 
-    @Autowired
     IPermissionService permissionService;
 
     @GetMapping(value = "/list")

@@ -1,6 +1,7 @@
 package com.example.asset.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 
@@ -16,27 +17,27 @@ public class GroupPermissionEntity{
     @Column
     private Long permissionId;
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getGroupId() {
-        return groupId;
     }
 
     public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
-    public Long getPermissionId() {
-        return permissionId;
-    }
-
     public void setPermissionId(Long permissionId) {
         this.permissionId = permissionId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    public Long getPermissionId() {
+        return permissionId;
     }
 }

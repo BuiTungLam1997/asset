@@ -3,6 +3,7 @@ package com.example.asset.controller.api;
 import com.example.asset.controller.output.ResponseService;
 import com.example.asset.dto.GroupDTO;
 import com.example.asset.service.IGroupService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/v1/group")
+@AllArgsConstructor
 public class GroupAPI {
-    @Autowired
+
     IGroupService groupService;
 
     @GetMapping(value = "/list")

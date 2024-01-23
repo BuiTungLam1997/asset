@@ -4,6 +4,7 @@ import com.example.asset.dto.GroupDTO;
 import com.example.asset.mapper.GroupMapper;
 import com.example.asset.repository.GroupRepository;
 import com.example.asset.service.IGroupService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +15,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class GroupService implements IGroupService {
 
-    @Autowired
+
     GroupRepository groupRepository;
-    @Autowired
+
     GroupMapper groupMapper;
 
     @Override

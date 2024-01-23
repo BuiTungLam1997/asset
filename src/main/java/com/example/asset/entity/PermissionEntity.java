@@ -1,6 +1,7 @@
 package com.example.asset.entity;
 
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 
@@ -18,35 +19,35 @@ public class PermissionEntity  {
     @Column
     private String node;
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
     public void setCode(String code) {
         this.code = code;
     }
 
-    public String getNode() {
-        return node;
-    }
-
     public void setNode(String node) {
         this.node = node;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getNode() {
+        return node;
     }
 }

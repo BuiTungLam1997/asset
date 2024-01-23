@@ -23,19 +23,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="table-responsive">
-                                <form action="<c:url value="/admin-search-user"/>" method="get" id="formSearch">
+                                <form action="<c:url value="/admin/user-search"/>" method="get" id="formSearch">
                                     <input type="text" placeholder="Search.." name="search" id="search" value="">
                                     <button type="submit" onclick="fun()" id="btnSearch">Submit
                                     </button>
-                                </form>
-
-                                <form action="<c:url value="${APIUrl}"/>" method="put" id="formGroup">
-                                    <select id="groupId" name="groupId">
-                                        <c:forEach var="item" items="${listGroup}">
-                                            <option value="${item.id}">${item.name}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <button type="submit" id="btnAdd"> Add</button>
                                 </form>
 
                                 <form action="<c:url value="/admin-user-list"/>" id="formSubmit" method="get">

@@ -1,8 +1,6 @@
 package com.example.asset.service;
 
-import com.example.asset.dto.DeviceDTO;
 import com.example.asset.dto.GroupPermissionDTO;
-import com.example.asset.dto.PermissionDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

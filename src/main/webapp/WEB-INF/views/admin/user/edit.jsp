@@ -66,10 +66,12 @@
                         <div class="space-4"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="phoneNumber"> Phone Number </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="phoneNumber"> Phone
+                                Number </label>
 
                             <div class="col-sm-9">
-                                <input type="text" name="phoneNumber" id="phoneNumber" value="" Class="col-xs-10 col-sm-5"/>
+                                <input type="text" name="phoneNumber" id="phoneNumber" value=""
+                                       Class="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
                         <div class="space-4"></div>
@@ -83,9 +85,11 @@
                         <div class="space-4"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="legalEntity"> Legal Entity : </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="legalEntity"> Legal Entity
+                                : </label>
                             <div class="col-sm-9">
-                                <input type="text" name="legalEntity" id="legalEntity" value="" Class="col-xs-10 col-sm-5"/>
+                                <input type="text" name="legalEntity" id="legalEntity" value=""
+                                       Class="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
 
@@ -130,24 +134,41 @@
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.page-content -->
-<%--    DANH SACH THIET BI DUNG TEN USER NAY    --%>
+        <%--    DANH SACH THIET BI DUNG TEN USER NAY    --%>
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Tiêu đề</th>
-                <th>Nội dung</th>
-                <th>Ngày bắt đầu</th>
-                <th>Ngày kết thúc</th>
-                <th>createdBy</th>
-                <th>Trạng thái</th>
+                <th>Id</th>
+                <th>New Access Tag Id</th>
+                <th>Old Access Tag Id</th>
+                <th>Asset Name Model</th>
+                <th>Quantity</th>
+                <th>Unit Of Measurement</th>
+                <th>Asset Type</th>
+                <th>User Id</th>
+                <th>Day</th>
+                <th>Inventory</th>
+                <th>status</th>
+                <th>mac</th>
+                <th>serviceProvider</th>
+                <th>statusUpdate</th>
+                <th>purchaseDate</th>
+                <th>expectedLifeCycle</th>
+                <th>originalCost</th>
+                <th>depreciationValue</th>
+                <th>expiredLifeCycleDate</th>
+                <th>account</th>
+                <th>sapId</th>
+                <th>remainingAssetValue</th>
             </tr>
             </thead>
-            <tbody id="listGroup">
+            <tbody id="listAsset">
             </tbody>
         </table>
         <ul class="pagination" id="pagination"></ul>
     </div>
 </div>
 <script type='text/javascript' src="/template/custom/admin/js/user/edit.js"></script>
+<script type='text/javascript' src="/template/custom/admin/js/asset/search.js"></script>
 </body>
 </html>

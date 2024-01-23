@@ -1,6 +1,8 @@
 package com.example.asset.dto;
 
 import lombok.Data;
+import lombok.Getter;
+
 
 
 public class ModelDTO   {
@@ -10,43 +12,43 @@ public class ModelDTO   {
     private String detail;
     private String note;
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public String getDetail() {
-        return detail;
     }
 
     public void setDetail(String detail) {
         this.detail = detail;
     }
 
-    public String getNote() {
-        return note;
-    }
-
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public String getNote() {
+        return note;
     }
 }

@@ -7,7 +7,7 @@ jQuery(function ($) {
     });
     let getData = (url) => {
         let id = document.getElementById(`id`).value;
-        if (!url) url = `/api/v1/device/get/${id}`;
+        if (!url) url = `/api/v1/asset/get/${id}`;
         $.ajax({
             url: url,
             type: 'GET',
@@ -77,33 +77,34 @@ jQuery(function ($) {
     });
 
     function update(data) {
+        let id = document.getElementById(`id`).value;
         $.ajax({
-            url: '/api/v1/user/update-device',
+            url: '/api/v1/asset/update-asset',
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/device?&message=update_success';
+                window.location.href = '/admin/asset-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/device?message=error_system';
+                window.location.href = '/admin/asset-edit/{id}?message=error_system';
             },
         });
     }
 
     function add(data) {
         $.ajax({
-            url: '/api/v1/user/create-device',
+            url: '/api/v1/asset/create-asset',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/device?&message=update_success';
+                window.location.href = '/admin/asset-list?&message=insert_success';
             },
             error: function (error) {
-                window.location.href = '/admin/device?message=error_system';
+                window.location.href = '/admin/asset-edit?message=error_system';
             },
         });
     }

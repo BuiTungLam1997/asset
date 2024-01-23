@@ -1,9 +1,7 @@
 package com.example.asset.service;
 
 
-import com.example.asset.dto.DeviceDTO;
 import com.example.asset.dto.UserDTO;
-import com.example.asset.entity.UserEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

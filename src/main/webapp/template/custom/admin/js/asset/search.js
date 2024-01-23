@@ -4,7 +4,8 @@ jQuery(function ($) {
             getData("");
         }
         let getData = (url) => {
-            if (!url) url = `/api/v1/device/list`;
+            let search = document.getElementById(`searchResponse`).value;
+            if (!url) url = `/api/v1/asset/search/${search}`;
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -12,6 +13,7 @@ jQuery(function ($) {
                 dataType: 'json',
                 success: function (result) {
                     mapTable(result.data);
+                    paging(url, result.totalPages, result.currentPage, result.limit);
                 },
             });
         }
@@ -32,20 +34,48 @@ jQuery(function ($) {
                 row += `<td>${v.userId}</td>`
                 row += `<td>${v.day}</td>`
                 row += `<td>${v.inventory}</td>`
+                row += `<td>${v.status}</td>`
+                row += `<td>${v.mac}</td>`
+                row += `<td>${v.serviceProvider}</td>`
+                row += `<td>${v.statusUpdate}</td>`
+                row += `<td>${v.purchaseDate}</td>`
+                row += `<td>${v.expectedLifeCycle}</td>`
+                row += `<td>${v.originalCost}</td>`
+                row += `<td>${v.depreciationValue}</td>`
+                row += `<td>${v.expiredLifeCycleDate}</td>`
+                row += `<td>${v.account}</td>`
+                row += `<td>${v.sapId}</td>`
+                row += `<td>${v.remainingAssetValue}</td>`
                 row += `<td>
                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-                           title="Cập nhật user" href='/admin/device-edit?id=${v.id}'><i
+                           title="Cập nhật user" href='/admin/asset-edit?id=${v.id}'><i
                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>                   
                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-                           title="Báo cáo công việc user" href='/admin/report-user?id=${v.id}'>
+                           title="Báo cáo công việc user" href='/admin/report-asset?id=${v.id}'>
                             <i class="fa fa-clipboard" aria-hidden="true"></i>
                         </a>
 
                     </td>`
                 row += `</tr>`
             })
-            $('#listDevice').empty().append(row);
+            $('#listAsset').empty().append(row);
+        };
+
+        let paging = (url, totalPages, currentPage, limit) => {
+            $(function () {
+                window.pagObj = $('#pagination').twbsPagination({
+                    totalPages: totalPages,
+                    visiblePages: limit,
+                    startPage: currentPage,
+                    onPageClick: function (event, page) {
+                        if (currentPage !== page) {
+                            getData(`${url}?page=${page}&limit=${limit}`);
+                            currentPage = page;
+                        }
+                    }
+                });
+            });
         };
 
         init();

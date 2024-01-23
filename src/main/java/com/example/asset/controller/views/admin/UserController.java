@@ -27,9 +27,10 @@ public class UserController {
     @GetMapping(value = "/user-search")
     public ModelAndView editUser(@RequestParam(required = false) String search) {
         ModelAndView mav = new ModelAndView("/admin/user/search");
-        if (search != null) {
-            mav.addObject("id", search);
+        if (search != null && !search.isEmpty()) {
+            mav.addObject("searchResponse", search);
+            return mav;
         }
-        return mav;
+        return new ModelAndView("/admin/user/list");
     }
 }

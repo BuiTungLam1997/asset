@@ -3,6 +3,7 @@ package com.example.asset.controller.api;
 import com.example.asset.controller.output.ResponseService;
 import com.example.asset.dto.UserDTO;
 import com.example.asset.service.IUserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,8 +20,9 @@ import static com.example.asset.dto.constant.Pageable.defaultPage;
 
 @RestController
 @RequestMapping(value = "/api/v1/user")
+@AllArgsConstructor
 public class UserAPI {
-    @Autowired
+
     IUserService userService;
 
     @GetMapping(value = "/list")
@@ -54,7 +56,7 @@ public class UserAPI {
             @PathVariable String search) {
         Pageable pageable = PageRequest.of(page - 1, limit);
         try {
-            Page<UserDTO> data = userService.search(pageable,search);
+            Page<UserDTO> data = userService.search(pageable, search);
             return new ResponseEntity<>(new ResponseService<>(data.getContent(), "Success", "200", data.getTotalPages(), page, limit), HttpStatus.OK);
         } catch (Exception exception) {
             throw new RuntimeException(exception);

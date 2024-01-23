@@ -4,8 +4,7 @@ jQuery(function ($) {
             getData("");
         }
         let getData = (url) => {
-            let search = document.getElementById(`searchResponse`).value;
-            if (!url) url = `/api/v1/user/search/${search}`;
+            if (!url) url = `/api/v1/asset/list`;
             $.ajax({
                 url: url,
                 type: 'GET',
@@ -25,27 +24,41 @@ jQuery(function ($) {
                                value="${v.id}">`
                 row += `</td>`
                 row += `<td>${v.id}</td>`
-                row += `<td>${v.username}</td>`
-                row += `<td>${v.password}</td>`
-                row += `<td>${v.phoneNumber}</td>`
-                row += `<td>${v.email}</td>`
-                row += `<td>${v.legalEntity}</td>`
-                row += `<td>${v.location}</td>`
-                row += `<td>${v.site}</td>`
+                row += `<td>${v.newAccessTagId}</td>`
+                row += `<td>${v.oldAccessTagId}</td>`
+                row += `<td>${v.assetNameModel}</td>`
+                row += `<td>${v.quantity}</td>`
+                row += `<td>${v.unitOfMeasurement}</td>`
+                row += `<td>${v.assetType}</td>`
+                row += `<td>${v.userId}</td>`
+                row += `<td>${v.day}</td>`
+                row += `<td>${v.inventory}</td>`
+                row += `<td>${v.status}</td>`
+                row += `<td>${v.mac}</td>`
+                row += `<td>${v.serviceProvider}</td>`
+                row += `<td>${v.statusUpdate}</td>`
+                row += `<td>${v.purchaseDate}</td>`
+                row += `<td>${v.expectedLifeCycle}</td>`
+                row += `<td>${v.originalCost}</td>`
+                row += `<td>${v.depreciationValue}</td>`
+                row += `<td>${v.expiredLifeCycleDate}</td>`
+                row += `<td>${v.account}</td>`
+                row += `<td>${v.sapId}</td>`
+                row += `<td>${v.remainingAssetValue}</td>`
                 row += `<td>
                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-                           title="Cập nhật user" href='/admin/user-edit?id=${v.id}'><i
+                           title="Cập nhật user" href='/admin/asset-edit?id=${v.id}'><i
                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>                   
                         <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-                           title="Báo cáo công việc user" href='/admin/report-user?id=${v.id}'>
+                           title="Báo cáo công việc user" href='/admin/report-asset?id=${v.id}'>
                             <i class="fa fa-clipboard" aria-hidden="true"></i>
                         </a>
 
                     </td>`
                 row += `</tr>`
             })
-            $('#listUser').empty().append(row);
+            $('#listAsset').empty().append(row);
         };
 
         let paging = (url, totalPages, currentPage, limit) => {

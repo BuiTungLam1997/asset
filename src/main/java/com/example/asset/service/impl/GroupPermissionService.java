@@ -4,6 +4,7 @@ import com.example.asset.dto.GroupPermissionDTO;
 import com.example.asset.mapper.GroupPermissionMapper;
 import com.example.asset.repository.GroupPermissionRepository;
 import com.example.asset.service.IGroupPermissionService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

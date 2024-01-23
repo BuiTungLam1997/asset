@@ -23,37 +23,27 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="table-responsive">
-                                <form action="<c:url value="/"/>" method="get" id="formSearch">
+                                <form action="<c:url value="/admin/asset-search"/>" method="get" id="formSearch">
                                     <input type="text" placeholder="Search.." name="search" id="search" value="">
                                     <button type="submit" onclick="fun()" id="btnSearch">Submit
                                     </button>
                                 </form>
 
-                                <form action="<c:url value="${}"/>" method="put" id="formGroup">
-                                    <select id="groupId" name="groupId">
-                                        <c:forEach var="item" items="${}">
-                                            <option value="${item.id}">${item.name}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <button type="submit" id="btnAdd"> Add</button>
-                                </form>
-
                                 <form action="<c:url value="/"/>" id="formSubmit" method="get">
                                     <div class="pull-right tableTools-container">
                                         <div class="dt-buttons btn-overlap btn-group">
-                                            <c:url var="createUserURL" value="/"/>
                                             <a flag="info"
                                                class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
                                                data-toggle="tooltip"
                                                title='Thêm bài viết'
-                                               href='${createUserURL}'>
+                                               href='/admin/asset-edit'>
 															<span>
 																<i class="fa fa-plus-circle bigger-110 purple"></i>
 															</span>
                                             </a>
                                             <button id="btnDelete" type="button" onclick="warningBeforeDelete()"
                                                     class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-                                                    data-toggle="tooltip" title='Xóa bài viết'>
+                                                    data-toggle="tooltip" title='Xóa bài viết' >>
 																<span>
 																	<i class="fa fa-trash-o bigger-110 pink"></i>
 																</span>
@@ -74,10 +64,22 @@
                                             <th>User Id</th>
                                             <th>Day</th>
                                             <th>Inventory</th>
+                                            <th>status</th>
+                                            <th>mac</th>
+                                            <th>serviceProvider</th>
+                                            <th>statusUpdate</th>
+                                            <th>purchaseDate</th>
+                                            <th>expectedLifeCycle</th>
+                                            <th>originalCost</th>
+                                            <th>depreciationValue</th>
+                                            <th>expiredLifeCycleDate</th>
+                                            <th>account</th>
+                                            <th>sapId</th>
+                                            <th>remainingAssetValue</th>
                                             <th>Thao tác</th>
                                         </tr>
                                         </thead>
-                                        <tbody id="listUser">
+                                        <tbody id="listAsset">
                                         </tbody>
                                     </table>
                                     <ul class="pagination" id="pagination"></ul>
@@ -92,7 +94,47 @@
         </div>
     </div>
 </div><!-- /.main-content -->
-<script type='text/javascript' src="/template/custom/admin/js/device/list.js"></script>
+<script type='text/javascript' src="/template/custom/admin/js/asset/list.js"></script>
+<script type='text/javascript'>
+    function warningBeforeDelete() {
+        swal({
+            title: "Mài có chắc chắn xóa nó không ?",
+            text: "Thấy câu hỏi ở trên không ,ừ chỗ này giống nó đó ,trả lời đi!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-success",
+            cancelButtonClass: "btn-danger",
+            confirmButtonText: "Có, Con đồng ý xóa thưa ngài!",
+            cancelButtonText: "Không , Con cần thời gian suy nghĩ!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }).then(function (isConfirm) {
+            if (isConfirm) {
+                var data = {};
+                data ['ids'] = $('tbody input[type=checkbox]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                deleteAsset(data);
+            }
+        });
+    }
+
+    function deleteAsset(data) {
+        $.ajax({
+            url: `/api/v1/asset/delete-asset`,
+            type: 'DELETE',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (result) {
+                window.location.href = '/admin/asset-list?&message=delete_success';
+            },
+            error: function (error) {
+                window.location.href = '/admin/asset-list?&message=error!';
+            },
+        });
+    }
+</script>
+
 </body>
 </html>
 

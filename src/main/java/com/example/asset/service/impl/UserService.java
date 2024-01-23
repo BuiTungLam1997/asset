@@ -15,19 +15,16 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class UserService implements IUserService {
 
-
-    @Autowired
     UserRepository userRepository;
 
-    @Autowired
     UserMapper userMapper;
 
     @Override
     public Page<UserDTO> findAll(Pageable pageable) {
         return userRepository.findAll(pageable).map(userMapper::toDTO);
-
     }
 
     @Override

@@ -23,8 +23,9 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="table-responsive">
-                                <form action="<c:url value="/admin-search-user"/>" method="get" id="formSearch">
-                                    <input type="text" placeholder="Search.." name="search" id="search" value="">
+                                <form action="<c:url value="/admin/user-search"/>" method="get" id="formSearch">
+                                    <input type="text" placeholder="Search.." name="search" id="search"
+                                           value="${search}">
                                     <button type="submit" onclick="fun()" id="btnSearch">Submit
                                     </button>
                                 </form>
@@ -81,6 +82,8 @@
                                     <ul class="pagination" id="pagination"></ul>
                                     <input type="hidden" value="" id="page" name="page">
                                     <input type="hidden" value="" id="limit" name="limit">
+                                    <input type="hidden" value="${searchResponse}" id="searchResponse"
+                                           name="searchResponse">
                                 </form>
                             </div>
                         </div>

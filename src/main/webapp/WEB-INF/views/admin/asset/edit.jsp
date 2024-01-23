@@ -2,7 +2,7 @@
 <%@ include file="/common/taglib.jsp" %>
 <html>
 <head>
-    <title>Chỉnh sửa nhân viên</title>
+    <title>Chỉnh sửa tài sản</title>
 </head>
 <body>
 <div class="main-content">
@@ -152,6 +152,6 @@
         <ul class="pagination" id="pagination"></ul>
     </div>
 </div>
-<script type='text/javascript' src="/template/custom/admin/js/device/edit.js"></script>
+<script type='text/javascript' src="/template/custom/admin/js/asset/edit.js"></script>
 </body>
 </html>
