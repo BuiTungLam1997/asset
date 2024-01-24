@@ -1,6 +1,7 @@
 package com.example.asset.service.impl;
 
 import com.example.asset.dto.PermissionDTO;
+import com.example.asset.entity.PermissionEntity;
 import com.example.asset.mapper.PermissionMapper;
 import com.example.asset.repository.PermissionRepository;
 import com.example.asset.service.IPermissionService;
@@ -39,8 +40,9 @@ public class PermissionService implements IPermissionService {
     }
 
     @Override
-    public Optional<PermissionDTO> findById(Long id) {
-        return Optional.ofNullable(permissionMapper.opToDTO(permissionRepository.findById(id)));
+    public PermissionDTO findById(Long id) {
+        PermissionEntity permissionEntity = permissionRepository.findById(id).orElseThrow(NullPointerException::new);
+        return permissionMapper.toDTO(permissionEntity);
     }
 
     @Override

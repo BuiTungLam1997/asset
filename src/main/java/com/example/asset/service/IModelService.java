@@ -14,7 +14,7 @@ public interface IModelService {
 
     void delete(List<Long> ids);
 
-    Optional<ModelDTO> findById(Long id);
+    ModelDTO findById(Long id);
 
     List<ModelDTO> findAll();
 

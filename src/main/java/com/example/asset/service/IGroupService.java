@@ -14,7 +14,7 @@ public interface IGroupService {
 
     void delete(List<Long> ids);
 
-    Optional<GroupDTO> findById(Long id);
+    GroupDTO findById(Long id);
 
     List<GroupDTO> findAll();
 

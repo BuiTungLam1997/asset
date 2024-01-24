@@ -14,7 +14,7 @@ public interface IPermissionService {
 
     void delete(List<Long> ids);
 
-    Optional<PermissionDTO> findById(Long id);
+    PermissionDTO findById(Long id);
 
     List<PermissionDTO> findAll();
 

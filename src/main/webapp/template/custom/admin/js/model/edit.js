@@ -36,6 +36,7 @@ jQuery(function ($) {
     let mapTable = (data) => {
         $('#name').val(data.name);
         $('#code').val(data.code);
+        $('#detail').val(data.detail);
         $('#note').val(data.note);
     };
 
@@ -72,32 +73,32 @@ jQuery(function ($) {
 
     function update(data) {
         $.ajax({
-            url: '/api/v1/admin/update-model',
+            url: '/api/v1/model/update-model',
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/model?&message=update_success';
+                window.location.href = '/admin/model-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/model?message=error_system';
+                window.location.href = '/admin/model-list?message=error_system';
             },
         });
     }
 
     function add(data) {
         $.ajax({
-            url: '/api/v1/admin/create-model',
+            url: '/api/v1/model/create-model',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/model?&message=update_success';
+                window.location.href = '/admin/model-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/model?message=error_system';
+                window.location.href = '/admin/model-edit?message=error_system';
             },
         });
     }

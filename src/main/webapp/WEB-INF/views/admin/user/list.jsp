@@ -82,6 +82,45 @@
     </div>
 </div><!-- /.main-content -->
 <script type='text/javascript' src="/template/custom/admin/js/user/list.js"></script>
+<script type='text/javascript'>
+    function warningBeforeDelete() {
+        swal({
+            title: "Mài có chắc chắn xóa nó không ?",
+            text: "Thấy câu hỏi ở trên không ,ừ chỗ này giống nó đó ,trả lời đi!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-success",
+            cancelButtonClass: "btn-danger",
+            confirmButtonText: "Có, Con đồng ý xóa thưa ngài!",
+            cancelButtonText: "Không , Con cần thời gian suy nghĩ!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }).then(function (isConfirm) {
+            if (isConfirm) {
+                var data = {};
+                data ['ids'] = $('tbody input[type=checkbox]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                deleteAsset(data);
+            }
+        });
+    }
+
+    function deleteAsset(data) {
+        $.ajax({
+            url: `/api/v1/user/delete-user`,
+            type: 'DELETE',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function (result) {
+                window.location.href = '/admin/user-list?&message=delete_success';
+            },
+            error: function (error) {
+                window.location.href = '/admin/user-list?&message=error!';
+            },
+        });
+    }
+</script>
 </body>
 </html>
 

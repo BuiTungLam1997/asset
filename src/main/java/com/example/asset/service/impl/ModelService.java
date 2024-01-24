@@ -1,6 +1,7 @@
 package com.example.asset.service.impl;
 
 import com.example.asset.dto.ModelDTO;
+import com.example.asset.entity.ModelEntity;
 import com.example.asset.mapper.ModelMapper;
 import com.example.asset.repository.ModelRepository;
 import com.example.asset.service.IModelService;
@@ -39,8 +40,9 @@ public class ModelService implements IModelService {
     }
 
     @Override
-    public Optional<ModelDTO> findById(Long id) {
-        return Optional.ofNullable(modelMapper.opToDTO(modelRepository.findById(id)));
+    public ModelDTO findById(Long id) {
+        ModelEntity modelEntity = modelRepository.findById(id).orElseThrow(NullPointerException::new);
+        return modelMapper.toDTO(modelEntity);
     }
 
     @Override

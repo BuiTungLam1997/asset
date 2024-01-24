@@ -72,32 +72,32 @@ jQuery(function ($) {
 
     function update(data) {
         $.ajax({
-            url: '/api/v1/admin/update-permission',
+            url: '/api/v1/permission/update-permission',
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/permission?&message=update_success';
+                window.location.href = '/admin/permission-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/permission?message=error_system';
+                window.location.href = '/admin/permission-list?message=error_system';
             },
         });
     }
 
     function add(data) {
         $.ajax({
-            url: '/api/v1/admin/create-permission',
+            url: '/api/v1/permission/create-permission',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/permission?&message=update_success';
+                window.location.href = '/admin/permission-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/permission?message=error_system';
+                window.location.href = '/admin/permission-list?message=error_system';
             },
         });
     }

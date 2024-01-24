@@ -40,7 +40,7 @@ jQuery(function ($) {
                     </td>`
                 row += `</tr>`
             })
-            $('#listDevice').empty().append(row);
+            $('#listModel').empty().append(row);
         };
 
         init();

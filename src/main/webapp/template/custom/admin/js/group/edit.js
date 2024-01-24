@@ -72,32 +72,32 @@ jQuery(function ($) {
 
     function update(data) {
         $.ajax({
-            url: '/api/v1/admin/update-group',
+            url: '/api/v1/group/update-group',
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/group?&message=update_success';
+                window.location.href = '/admin/group-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/group?message=error_system';
+                window.location.href = '/admin/group-list?message=error_system';
             },
         });
     }
 
     function add(data) {
         $.ajax({
-            url: '/api/v1/admin/create-group',
+            url: '/api/v1/group/create-group',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = '/admin/group?&message=update_success';
+                window.location.href = '/admin/group-list?&message=update_success';
             },
             error: function (error) {
-                window.location.href = '/admin/group?message=error_system';
+                window.location.href = '/admin/group-list?message=error_system';
             },
         });
     }

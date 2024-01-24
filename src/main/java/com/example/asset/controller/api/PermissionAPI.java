@@ -32,9 +32,8 @@ public class PermissionAPI {
     @GetMapping(value = "/get/{id}")
     public ResponseEntity<ResponseService<PermissionDTO>> getPermission(@PathVariable Long id) {
         try {
-            Optional<PermissionDTO> permissionDTO = permissionService.findById(id);
-            return permissionDTO.map(permissionDTO1 -> new ResponseEntity<>(new ResponseService<>(permissionDTO1, "Success", "200"), HttpStatus.OK))
-                    .orElseGet(() -> new ResponseEntity<>(new ResponseService<>("Error! ID not found :" + id, "500"), HttpStatus.OK));
+            PermissionDTO permissionDTO = permissionService.findById(id);
+            return new ResponseEntity<>(new ResponseService<>(permissionDTO, "Success", "200"), HttpStatus.OK);
         } catch (Exception exception) {
             return new ResponseEntity<>(new ResponseService<>(exception.getMessage(), "500"), HttpStatus.BAD_REQUEST);
         }

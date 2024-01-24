@@ -32,10 +32,8 @@ public class ModelAPI {
     @GetMapping(value = "/get/{id}")
     public ResponseEntity<ResponseService<ModelDTO>> getModel(@PathVariable Long id) {
         try {
-            Optional<ModelDTO> modelDTO = modelService.findById(id);
-            return modelDTO.map(modelDTO1 -> new ResponseEntity<>(new ResponseService<>(modelDTO1, "Success", "200"), HttpStatus.OK))
-                    .orElseGet(() -> new ResponseEntity<>(new ResponseService<>("Error! ID not found :" + id, "500"), HttpStatus.OK));
-
+            ModelDTO model = modelService.findById(id);
+            return new ResponseEntity<>(new ResponseService<>(model, "Success", "200"), HttpStatus.OK);
         } catch (Exception exception) {
             return new ResponseEntity<>(new ResponseService<>(exception.getMessage(), "500"), HttpStatus.BAD_REQUEST);
         }

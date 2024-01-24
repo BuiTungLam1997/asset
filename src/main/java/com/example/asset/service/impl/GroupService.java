@@ -1,6 +1,7 @@
 package com.example.asset.service.impl;
 
 import com.example.asset.dto.GroupDTO;
+import com.example.asset.entity.GroupEntity;
 import com.example.asset.mapper.GroupMapper;
 import com.example.asset.repository.GroupRepository;
 import com.example.asset.service.IGroupService;
@@ -39,8 +40,9 @@ public class GroupService implements IGroupService {
     }
 
     @Override
-    public Optional<GroupDTO> findById(Long id) {
-        return Optional.ofNullable(groupMapper.opToDTO(groupRepository.findById(id)));
+    public GroupDTO findById(Long id) {
+        GroupEntity groupEntity = groupRepository.findById(id).orElseThrow(NullPointerException::new);
+        return groupMapper.toDTO(groupEntity);
     }
 
     @Override

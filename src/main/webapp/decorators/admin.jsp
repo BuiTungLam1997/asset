@@ -67,5 +67,6 @@
 
 <!-- page specific plugin scripts -->
 <script src="/template/admin/assets/js/jquery-ui.min.js"></script>
+
 </body>
 </html>

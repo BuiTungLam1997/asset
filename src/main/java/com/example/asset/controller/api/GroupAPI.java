@@ -32,10 +32,8 @@ public class GroupAPI {
     @GetMapping(value = "/get/{id}")
     public ResponseEntity<ResponseService<GroupDTO>> getGroup(@PathVariable Long id) {
         try {
-            Optional<GroupDTO> groupDTO = groupService.findById(id);
-            return groupDTO
-                    .map(groupDTO1 -> new ResponseEntity<>(new ResponseService<>(groupDTO1, "Success", "200"), HttpStatus.OK))
-                    .orElseGet(() -> new ResponseEntity<>(new ResponseService<>("Error! Id not found " + id, "400"), HttpStatus.OK));
+            GroupDTO groupDTO = groupService.findById(id);
+            return new ResponseEntity<>(new ResponseService<>(groupDTO, "Success", "200"), HttpStatus.OK);
         } catch (Exception exception) {
             return new ResponseEntity<>(new ResponseService<>(exception.getMessage(), "400"), HttpStatus.BAD_REQUEST);
         }

@@ -121,7 +121,7 @@
 
     function deleteAsset(data) {
         $.ajax({
-            url: `/api/v1/asset/delete-asset`,
+            url: `/api/v1/user/delete-user`,
             type: 'DELETE',
             contentType: 'application/json',
             data: JSON.stringify(data),
@@ -134,7 +134,6 @@
         });
     }
 </script>
-
 </body>
 </html>
 
